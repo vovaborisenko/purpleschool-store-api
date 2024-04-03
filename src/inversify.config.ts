@@ -5,9 +5,12 @@ import { TYPES } from './types';
 import { App } from './app';
 import { IExceptionFilter } from './errors/exception.filter.interface';
 import { ExceptionFilter } from './errors/exception.filter';
+import { IConfigService } from './config/config.service.interface';
+import { ConfigService } from './config/config.service';
 
 const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<ILoggerService>(TYPES.ILoggerService).to(LoggerService).inSingletonScope();
+  bind<IConfigService>(TYPES.IConfigService).to(ConfigService).inSingletonScope();
 
   bind<IExceptionFilter>(TYPES.IExceptionFilter).to(ExceptionFilter);
 
