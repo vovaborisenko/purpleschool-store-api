@@ -7,7 +7,10 @@
     "start": "node ./dist/main.js",
     "dev": "nodemon",
     "build": "tsc",
-    "test": "jest --config jest.e2e.config.js"
+    "test": "jest --config jest.e2e.config.ts"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "repository": {
     "type": "git",
