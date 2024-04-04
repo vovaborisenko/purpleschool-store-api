@@ -5,7 +5,7 @@ import { HTTPError } from '../errors/http-error.class';
 export class GuardMiddleware implements IMiddleware {
   execute({ user }: Request, res: Response, next: NextFunction): void {
     if (!user) {
-      return next(new HTTPError(403, 'Forbidden', 'guard'));
+      return next(new HTTPError(401, 'Unauthorized', 'guard'));
     }
 
     next();
