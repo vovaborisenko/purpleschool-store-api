@@ -6,13 +6,13 @@ import { ILoggerService } from '../logger/logger.interface';
 
 @injectable()
 export class ConfigService implements IConfigService {
-  private config: DotenvParseOutput | undefined;
+  private config?: DotenvParseOutput;
 
   constructor(@inject(TYPES.ILoggerService) private logger: ILoggerService) {
     const { error, parsed } = config();
 
     if (error) {
-      this.logger.warn('[ConfigService] Ошибка загрузки .env');
+      this.logger.error('[ConfigService] Ошибка загрузки .env');
     } else if (parsed) {
       this.logger.log('[ConfigService] Загружен .env');
       this.config = parsed;
